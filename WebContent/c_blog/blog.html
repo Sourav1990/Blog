@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div ng-app="myApp" ng-controller="BlogController as cntrl">
+<div ng-repeat="blog in cntrl.blogs">
+{{blog.id}}
+{{blog.title}}
+
+</div>
+</div>
+<script src="blogCtrl.js"></script>
+<script src="blog_service.js"></script>
+</body>
+</html>
