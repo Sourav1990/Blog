@@ -167,10 +167,6 @@ input[type="submit"]:hover {
 			<div>
 				<p class="mob-help">Please enter your mobile number.</p>
 			</div>
-			<input type="text" ng-model="ctrl.user.reason" id="reason" class="reason" placeholder="Reason..">
-			<div>
-				<p class="reason-help">Why are you here?</p>
-			</div>
 			
 			<input type="submit" class="submit" value="{{ctrl.user.id ? 'Register' : 'Start Registering'}}" ng-disabled="myForm.$invalid">
 		</form>
@@ -210,11 +206,6 @@ input[type="submit"]:hover {
 			$(".stat-help").slideUp(500);
 		});
 
-		$(".reason").focus(function() {
-			$(".reason-help").slideDown(500);
-		}).blur(function() {
-			$(".reason-help").slideUp(500);
-		});
 		$(".online").focus(function() {
 			$(".online-help").slideDown(500);
 		}).blur(function() {

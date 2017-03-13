@@ -18,7 +18,7 @@ app.factory('FriendService', ['$http', '$q','$rootScope', function($http, $q,$ro
             },
              
             sendFriendRequest: function(friendID){
-                    return $http.get(BASE_URL+'/addFriend/'+friendID)
+                    return $http.put(BASE_URL+'/addFriend/'+friendID)
                             .then(
                                     function(response){
                                     	if(response.data.errorCode==404)

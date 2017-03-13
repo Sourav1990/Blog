@@ -74,12 +74,12 @@
 			<div class="dropdown">
 <button onclick="myFunction()" class="dropbtn">{{currentUser.id}}</button>
   <div id="myDropdown" class="dropdown-content">
-    <a href="#home">My Profile</a>
+    <a href="#/myProfile" ng-show="currentUser.id">My Profile</a>
     <a href="#" ng-show="currentUser.id"
 								ng-click="cytrl.logout()">Logout</a>
   </div>
 </div>
-
+</ul>
 
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#register"><b>Register</b></a></li>
@@ -90,7 +90,7 @@
 						<li>
 							<div class="row">
 
-								<ul class="nav navbar-nav navbar-center">
+
 
 									<div class="col-md-12">
 

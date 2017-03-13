@@ -62,7 +62,7 @@ app.controller('FriendController', ['UserService','$scope', 'FriendService','$lo
                   .then(
                                function(d) {
                                     self.friends = d;
-                                    console.log("Got the friends list"+ self.friends)
+                                    console.log("Got the friends list"+ d);
                                      	 /*$location.path('/view_friend');*/
                                },
                                 function(errResponse){

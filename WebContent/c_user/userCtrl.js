@@ -7,8 +7,13 @@ app.controller(	'UserController', [	'$scope', 'UserService', '$location','$rootS
 							console.log("UserController...")
 							var self = this;
 /*							$scope.updateTime = Date.now();*/
-							this.user = {id:'',name:'',address:'',email:'',password:'',mobile:'',reason:'',role:'',is_online:''
+							this.user = {id:'',name:'',address:'',email:'',password:'',mobile:'',role:'',is_online:''
 							};
+							this.currentUser = {id : '',name : '', password : '',	mobile : '',
+									address : '', email : '',is_online : '',	role : ''
+									
+								};
+							
 							this.users = []; //json array
 							
 							 $scope.orderByMe = function(x) {
@@ -111,10 +116,10 @@ app.controller(	'UserController', [	'$scope', 'UserService', '$location','$rootS
 												null );
 							};
 
-							self.updateUser = function(user) {
+							self.updateUser = function(currentUser) {
 								console.log("updateUser...")
 								UserService
-										.updateUser(user)
+										.updateUser(currentUser)
 										.then(
 												self.getAll,
 												null);
@@ -122,8 +127,8 @@ app.controller(	'UserController', [	'$scope', 'UserService', '$location','$rootS
 							
 							self.update = function() {
 								{
-									console.log('Update the user details', self.user);
-									self.updateUser(self.user);
+									console.log('Update the user details',$rootScope.currentUser);
+									self.updateUser($rootScope.currentUser);
 								}
 								self.reset();
 							};
