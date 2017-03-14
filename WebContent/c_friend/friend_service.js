@@ -35,6 +35,7 @@ app.factory('FriendService', ['$http', '$q','$rootScope', function($http, $q,$ro
             },
             
             getMyFriendRequests: function(){
+            	console.log("Starting of the method getMyFriendRequests")
                 return $http.get(BASE_URL+'/getMyFriendRequests/')
                         .then(
                                 function(response){
@@ -47,9 +48,9 @@ app.factory('FriendService', ['$http', '$q','$rootScope', function($http, $q,$ro
                         );
         },
         
-        acceptFriendRequest: function(friendID){
+        acceptFriendRequest: function(userID){
         	console.log("Starting of the method acceptFriendRequest")
-            return $http.get(BASE_URL+'/accepttFriend/'+friendID)
+            return $http.put(BASE_URL+'/accepttFriend/'+userID)
                     .then(
                             function(response){
                                 return response.data;
@@ -61,9 +62,9 @@ app.factory('FriendService', ['$http', '$q','$rootScope', function($http, $q,$ro
                     );
     },
          
-    rejectFriendRequest: function(friendID){
+    rejectFriendRequest: function(userID){
     	console.log("Starting of the method rejectFriendRequest")
-        return $http.get(BASE_URL+'/getMyFriendRequests/'+friendID)
+        return $http.put(BASE_URL+'/rejectFriend/'+userID)
                 .then(
                         function(response){
                             return response.data;
@@ -75,9 +76,10 @@ app.factory('FriendService', ['$http', '$q','$rootScope', function($http, $q,$ro
                 );
 },
      
-unFriend: function(friendID){
-	console.log("Starting of the method unFriend")
-    return $http.get(BASE_URL+'/getMyFriendRequests/'+friendID)
+unFriend: function(userID){
+	console.log("Starting of the method unFriend"+userID)
+    return $http.put(BASE_URL+'/unFriend/'+userID)
+    
             .then(
                     function(response){
                         return response.data;

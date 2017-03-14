@@ -81,7 +81,7 @@ app.config(function($routeProvider) {
 	})
 	
 	.when('/viewFriendRequest', {
-		templateUrl : 'c_friend/view_friend_request.html',
+		templateUrl : 'c_friend/viewFriendRequest.html',
 		controller : 'FriendController'
 	})
 	

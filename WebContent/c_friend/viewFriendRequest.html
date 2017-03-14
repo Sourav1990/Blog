@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+button.example {
+	-webkit-transition: all 0s ease-out;
+	-moz-transition: all 0s ease-out;
+	-o-transition: all 0s ease-out;
+	-ms-transition: all 0s ease-out;
+	transition: all 0s ease-out;
+	height: 35px;
+	display: block;
+	font-family: Arial, "Helvetica", sans-serif;
+	font-size: 14px;
+	color: #fff;
+	text-decoration: none;
+	text-align: center;
+	text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
+	padding: 4px 20px 0;
+	margin: 10px auto;
+	left: 30px;
+	position: relative;
+	cursor: pointer;
+	border: none;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+button.facebook {
+	border-left: solid 1px #2E4476;
+	background: #3B5999;
+	-webkit-box-shadow: 0px 5px 0px 0px #2E4476;
+	box-shadow: 0px 5px 0px 0px #2E4476;
+}
+
+button.twitter {
+	border-left: solid 1px #269BD0;
+	background: #46C1F6;
+	-webkit-box-shadow: 0px 5px 0px 0px #269BD0;
+	box-shadow: 0px 5px 0px 0px #269BD0;
+}
+
+button.pinterest {
+	border-left: solid 1px #C02B21;
+	background: #DE463B;
+	-webkit-box-shadow: 0px 5px 0px 0px #C02B21;
+	box-shadow: 0px 5px 0px 0px #C02B21;
+}
+
+button.yahoo {
+	border-left: solid 1px #813781;
+	background: #A948A9;
+	-webkit-box-shadow: 0px 5px 0px 0px #813781;
+	box-shadow: 0px 5px 0px 0px #813781;
+}
+
+button.example:active {
+	top: 3px;
+}
+
+button.facebook:active {
+	-webkit-box-shadow: 0px 2px 0px 0px #2E4476;
+	box-shadow: 0px 2px 0px 0px #2E4476;
+}
+
+button.twitter:active {
+	-webkit-box-shadow: 0px 2px 0px 0px #269BD0;
+	box-shadow: 0px 2px 0px 0px #269BD0;
+}
+
+button.pinterest:active {
+	-webkit-box-shadow: 0px 2px 0px 0px #C02B21;
+	box-shadow: 0px 2px 0px 0px #C02B21;
+}
+
+button.yahoo:active {
+	-webkit-box-shadow: 0px 2px 0px 0px #813781;
+	box-shadow: 0px 2px 0px 0px #813781;
+}
+
+button.example:before {
+	content: "1";
+	width: 35px;
+	height: 25px;
+	display: block;
+	position: absolute;
+	padding-top: 10px;
+	line-height: 20px;
+	top: 0px;
+	margin-left: -54px;
+	font-size: 16px;
+	font-weight: bold;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+button.facebook:before {
+	border-right: solid 1px #2E4476;
+	background: #3B5999;
+	-webkit-box-shadow: 0px 5px 0px 0px #2E4476;
+	box-shadow: 0px 5px 0px 0px #2E4476;
+}
+
+button.twitter:before {
+	border-right: solid 1px #269BD0;
+	background: #46C1F6;
+	-webkit-box-shadow: 0px 5px 0px 0px #269BD0;
+	box-shadow: 0px 5px 0px 0px #269BD0;
+}
+
+button.pinterest:before {
+	border-right: solid 1px #C02B21;
+	background: #DE463B;
+	-webkit-box-shadow: 0px 5px 0px 0px #C02B21;
+	box-shadow: 0px 5px 0px 0px #C02B21;
+}
+
+button.yahoo:before {
+	border-right: solid 1px #813781;
+	background: #A948A9;
+	-webkit-box-shadow: 0px 5px 0px 0px #813781;
+	box-shadow: 0px 5px 0px 0px #813781;
+}
+
+button.example:active:before {
+	top: -3px;
+}
+
+button.facebook:active:before {
+	-webkit-box-shadow: 0px 5px 0px 0px #2E4476, 6px 4px 2px
+		rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 5px 0px 0px #2E4476, 6px 4px 2px rgba(0, 0, 0, 0.3);
+}
+
+button.twitter:active:before {
+	-webkit-box-shadow: 0px 5px 0px 0px #269BD0, 6px 4px 2px
+		rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 5px 0px 0px #269BD0, 6px 4px 2px rgba(0, 0, 0, 0.3);
+}
+
+button.pinterest:active:before {
+	-webkit-box-shadow: 0px 5px 0px 0px #C02B21, 6px 4px 2px
+		rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 5px 0px 0px #C02B21, 6px 4px 2px rgba(0, 0, 0, 0.3);
+}
+
+button.yahoo:active:before {
+	-webkit-box-shadow: 0px 5px 0px 0px #813781, 6px 4px 2px
+		rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 5px 0px 0px #813781, 6px 4px 2px rgba(0, 0, 0, 0.3);
+}
+</style>
+<body>
+	<div ng-controller="FriendController as cgtrl">
+		<div ng-init="cgtrl.getMyFriendRequests()">
+			<ul>
+				<li ng-repeat="i in cgtrl.friends">
+				{{i.userID}}
+					<button class="example facebook" ng-click="cgtrl.acceptFriendRequest(i.userID)">Accept!</button> <!-- <button class="example twitter">Reject!</button> -->
+					<button class="example pinterest" ng-click="cgtrl.rejectFriendRequest(i.userID)">Reject!</button> <!-- <button class="example yahoo">Login with Yahoo</button> -->
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div>
+	<a href="#/view_friend">View Friends</a>
+	</div>
+</body>
+</html>
