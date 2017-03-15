@@ -9,6 +9,7 @@ app.controller('BlogController', ['$scope', 'BlogService','$location','$rootScop
           
           
          self.getSelectedBlog = getBlog
+         self.getSelectedBlogger = getBlogs
           
           function getBlog(id){
         	  console.log("->getting blog :"+id)
@@ -16,7 +17,22 @@ app.controller('BlogController', ['$scope', 'BlogService','$location','$rootScop
                   .then(
                                function(d) {
                                      //self.blog = d;
+                            	   console.log("->getting blog :"+d)
                                      $location.path('/view_blog'); //mapping is there in the app.js .when
+                               },
+                                function(errResponse){
+                                    console.error('Error while fetching Blogs');
+                                }
+                       );
+          };
+          function getBlogs(userID){
+        	  console.log("->getting blog of the current user :"+userID)
+              BlogService.getBlogs(userID)
+                  .then(
+                               function(d) {
+                                     //self.blog = d;
+                                     
+                                     $location.path('/my_blog'); //mapping is there in the app.js .when
                                },
                                 function(errResponse){
                                     console.error('Error while fetching Blogs');

@@ -133,14 +133,13 @@ button.pinterest {
 		placeholder="Enter your search terms" />
 
 	<div ng-init="cgtrl.listAllUsersNotFriends()">
-
 		<ul>
 
 			<!-- Render a li element for every entry in the items array. Notice
 				 the custom search filter "searchFor". It takes the value of the
 				 searchString model as an argument.
 			 -->
-			<li ng-repeat="i in cgtrl.users | filter:searchString">
+			<li ng-show="i.id!=currentUser.id" ng-repeat="i in cgtrl.users | filter:searchString">
 
 				{{i.name}}
 				<button type="button" ng-click="cgtrl.sendFriendRequest(i.id)"
@@ -152,8 +151,10 @@ button.pinterest {
 
 
 
-</div>
+</div >
+
 <div>
+<button type="button" ng-click="cgtrl.getMyFriendcount()" class="btn btn-warning btn-sm">Friend Request Count</button>
 	<a href="#/viewFriendRequest">View Friend Request</a>
 </div>
 </html>

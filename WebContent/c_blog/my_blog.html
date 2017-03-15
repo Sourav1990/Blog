@@ -1,0 +1,108 @@
+
+<style>
+body {
+	font-family: "proxima-nova-soft", sans-serif;
+}
+
+$
+red:         #E48482 ; .post {
+	width: 50%;
+	float: left;
+	min-height: 400px;
+	color: $white;
+	display: table; . inner { display : table-cell;
+	vertical-align: middle;
+	padding: 0 15%;
+}
+
+.title {
+	font-size: 1.75em;
+}
+
+.post_info { .date , .read_length { display:inline;
+	font-size: 1.1em;
+}
+
+.date {
+	margin-right: 1em;
+}
+
+}
+transition
+
+
+:
+
+ 
+
+background
+
+ 
+
+.4s
+
+ 
+
+ease-in-out
+
+
+;
+}
+.red {
+	background: $red;
+	.
+	post_info
+	{
+	.date
+	{
+	color
+	:
+	#A25F5E;
+}
+
+.read_length {
+	color: #F8B4B2;
+}
+
+}
+&
+:hover {
+	background: darken($ red, 10%);
+}
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+
+	<div ng-controller="BlogController as ctrl">
+		<div class="post red">
+			<div class="inner">
+				<p class="read_length">
+					<i class="fa fa-pencil-square-o" aria-hidden="true">{{selectedBlogger.title}}</i>
+				<h2 class="title">
+					{{selectedBlogger.description}} <br>
+				</h2>
+				<div class="post_info">
+					<p class="date">
+						<i class="fa fa-calendar-o"></i>{{selectedBlogger.dateTime}}
+					</p>
+					<p class="read_length">
+						<i class="fa fa-user-circle"></i> {{selectedBlogger.userID}}
+					</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</body>

@@ -64,12 +64,14 @@
 					<ul class="dropdown-menu" role="menu">
 						<li><a href="#/create_blog">Write a Blog</a></li>
 						<li><a href="#/list_blog">See what your friends posted</a></li>
+						<li><a href="#/my_blogs">My Blogs</a></li>
 					</ul></li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown">Job <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
 						<li><a href="#">Available Jobs</a></li>
 						<li><a href="#">Post a Job</a></li>
+						<li><a href="#/chat">Take me to chatroom</a></li>
 					</ul></li>
 			<div class="dropdown">
 <button onclick="myFunction()" class="dropbtn">{{currentUser.id}}</button>
@@ -77,6 +79,11 @@
     <a href="#/myProfile" ng-show="currentUser.id">My Profile</a>
     <a href="#" ng-show="currentUser.id"
 								ng-click="cytrl.logout()">Logout</a>
+  </div>
+</div>
+<div class="dropdown">
+  <div id="myDropdown" class="dropdown-content">
+    <a href="#/chat">Take me to chatroom</a>
   </div>
 </div>
 </ul>

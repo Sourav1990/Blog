@@ -4,9 +4,9 @@ app.controller('FriendController', ['UserService','$scope', 'FriendService','$lo
    '$rootScope',function(UserService,$scope, FriendService,$location,$routeParams,$rootScope) {
 	console.log("FriendController...")
           var self = this;
-          self.friend={id:'',userID:'',friendID:'',status:''};
+          self.friend={id:'',userID:'',friendID:'',status:'',errorMessage : '',errorCode:''};
           self.friends=[];
-          
+          $scope.myVar = false;
           self.user = {	id : '', name : '',	password : '',	mobile : '',
   				address : '',email : '', isOnline:'',role : '',
   				errorMessage : ''
@@ -34,6 +34,24 @@ app.controller('FriendController', ['UserService','$scope', 'FriendService','$lo
   		                  );
   		          };
   		 
+  		          
+  		        self.getMyFriendcount = function(){
+ 		        	 
+		              FriendService.getMyFriendcount()
+		                      .then(
+		                             function(d)
+		                             {
+		                            	 self.friends = d;
+		                            	 console.log("Got the friend count list"+ d);
+		                            	/* $location.path="/viewFriendRequest";*/
+		                            	 
+		                             },
+		                              function(errResponse){
+		                                   console.error('Error while updating Friend.');
+		                              } 
+		                  );
+		          };
+		 
           
          self.sendFriendRequest=sendFriendRequest
          
@@ -63,7 +81,7 @@ app.controller('FriendController', ['UserService','$scope', 'FriendService','$lo
                   .then(
                                function(d) {
                                     self.friends = d;
-                                    console.log("Got the friends list"+ d);
+                                    console.log("Got the friends list changed is"+ d);
                                      	 /*$location.path('/view_friend');*/
                                },
                                 function(errResponse){

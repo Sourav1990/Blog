@@ -1,0 +1,14 @@
+<div  class="container" ng-controller="BlogController as ctrl">
+
+
+Welcome to Blogs
+<div ng-show="blog.userID==currentUser.id" ng-repeat="blog in ctrl.blogs">
+Title  {{blog.title}} 
+
+Written By:  {{currentUser.id}}</a>  
+
+Description: {{blog.description}}
+</div>
+
+
+</div>

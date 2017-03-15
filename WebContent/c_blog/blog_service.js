@@ -99,6 +99,20 @@ app.factory('BlogService', ['$http', '$q','$rootScope', function($http, $q,$root
                                     return $q.reject(errResponse);
                                 }
                         );
+        },
+            
+            getBlogs: function(userID){
+                return $http.get  (BASE_URL+'/blogger/'+userID)
+                        .then(
+                                function(response){
+                                	$rootScope.selectedBlogger = response.data
+                                    return response.data;
+                                }, 
+                                function(errResponse){
+                                    console.error('Error while getting blog');
+                                    return $q.reject(errResponse);
+                                }
+                        );
         }
          
     };

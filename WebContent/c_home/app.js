@@ -55,6 +55,15 @@ app.config(function($routeProvider) {
 		templateUrl : 'c_blog/view_blog.html',
 		controller : 'BlogController'
 	})
+	
+	.when('/my_blogs', {
+		templateUrl : 'c_blog/my_blogs.html',
+		controller : 'BlogController'
+	})
+	.when('/my_blog', {
+		templateUrl : 'c_blog/my_blog.html',
+		controller : 'BlogController'
+	})
 
 	/**
 	 * Friend related mapping
@@ -62,6 +71,11 @@ app.config(function($routeProvider) {
 
 	.when('/add_friend', {
 		templateUrl : 'c_friend/add_friend.html',
+		controller : 'FriendController'
+	})
+	
+	.when('/tab', {
+		templateUrl : 'c_friend/tab.html',
 		controller : 'FriendController'
 	})
 
@@ -87,7 +101,7 @@ app.config(function($routeProvider) {
 	
 	.when('/chat', {
 		templateUrl : 'c_chat/chat.html',
-		controller : 'ChatController'
+		controller : 'ChatCtrl'
 	})
 	
 	.when('/chat_forum', {
@@ -142,8 +156,8 @@ app.run( function ($rootScope, $location,$cookieStore, $http) {
 		 
 		 var currentPage = $location.path()
 		 
-		 var isUserPage = $.inArray(currentPage, userPages)
-		 var isAdminPage = $.inArray(currentPage, adminPages)
+		 var isUserPage = $.inArray(currentPage, userPages);
+		 var isAdminPage = $.inArray(currentPage, adminPages);
 		 
 		 var isLoggedIn = $rootScope.currentUser.id;
 	        
