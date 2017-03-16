@@ -15,7 +15,7 @@
       <hr />
       <p ng-repeat="message in messages | orderBy:'time':true" class="message">
         <time>{{message.time | date:'HH:mm'}}</time>
-        <span ng-class="{self: message.self}">{{message.message}}</span>
+        <span ng-class="{self: message.self}">{{message.message}} [{{message.name}}]</span>
       </p>
     </div>
     

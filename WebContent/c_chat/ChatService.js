@@ -1,4 +1,4 @@
-app.service("ChatService", function($q, $timeout) {
+app.service("ChatService", function($q, $timeout,$rootScope) {
     
     var service = {}, listener = $q.defer(), socket = {
       client: null,
@@ -20,8 +20,8 @@ app.service("ChatService", function($q, $timeout) {
         priority: 9
       }, JSON.stringify({
         message: message,
-        id: id/*,
-        name:name*/
+        id: id,
+        name:$rootScope.currentUser.id
       }));
       messageIds.push(id);
     };
@@ -36,7 +36,7 @@ app.service("ChatService", function($q, $timeout) {
       var message = JSON.parse(data), out = {};
       out.message = message.message;
       out.time = new Date(message.time);
-     // out.name=message.name
+      out.name=message.name
      /* if (_.contains(messageIds, message.id)) {
         out.self = true;
         messageIds = _.remove(messageIds, message.id);
