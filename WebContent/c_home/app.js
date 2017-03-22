@@ -8,7 +8,10 @@ app.config(function($routeProvider) {
 	})
     .when('/event', {
 		templateUrl : 'c_upload/upload.html',
-		controller : 'FileUploadController'
+	})
+	
+	.when('/events', {
+		templateUrl : 'c_upload/events.html',
 	})
 
 	.when('/about', {
@@ -31,8 +34,8 @@ app.config(function($routeProvider) {
 		controller : 'UserController'
 	})
 	
-	.when('/manage_users', {
-		templateUrl : 'c_admin/manage_users.html',
+	.when('/manageblogs', {
+		templateUrl : 'c_admin/manageblogs.html',
 		controller : 'UserController'
 	})
 
@@ -104,9 +107,14 @@ app.config(function($routeProvider) {
 		controller : 'ChatCtrl'
 	})
 	
-	.when('/chat_forum', {
-		templateUrl : 'c_chat_forum/chat_forum.html',
-		controller : 'ChatForumController'
+	.when('/privatechat', {
+		templateUrl : 'c_chat/privatechat.html',
+		controller : 'pChatCtrl'
+	})
+
+	.when('/viewpchat', {
+		templateUrl : 'c_chat/viewpchat.html',
+		controller : 'pChatCtrl'
 	})
 
 
@@ -114,8 +122,8 @@ app.config(function($routeProvider) {
 	/**
 	 * Job related mappings
 	 */
-	.when('/job', {
-		templateUrl : 'c_job/job.html',
+	.when('/managejobs', {
+		templateUrl : 'c_admin/managejobs.html',
 		controller : 'JobController'
 	})
 

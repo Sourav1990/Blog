@@ -19,9 +19,22 @@ app.factory('BlogService', ['$http', '$q','$rootScope', function($http, $q,$root
                                     }
                             );
             },
+            
+            fetchAllNewBlogs: function() {
+                return $http.get(BASE_URL+'/getnewblogs')
+                        .then(
+                                function(response){
+                                    return response.data;
+                                }, 
+                                function(errResponse){
+                                    console.error('Error while fetching Blogs');
+                                    return $q.reject(errResponse);
+                                }
+                        );
+        },
              
             createBlog: function(blog){
-                    return $http.post(BASE_URL+'/blog/', blog)
+                    return $http.post(BASE_URL+'/blog', blog)
                             .then(
                                     function(response){
                                         return response.data;
@@ -48,7 +61,7 @@ app.factory('BlogService', ['$http', '$q','$rootScope', function($http, $q,$root
             
             accept: function(id) {
             	console.log("calling approve ")
-                    return $http.get(BASE_URL+'/accept/'+id)
+                    return $http.put(BASE_URL+'/tApproveBlog/'+id)
                             .then(
                                     function(response){
                                         return response.data;
@@ -62,7 +75,7 @@ app.factory('BlogService', ['$http', '$q','$rootScope', function($http, $q,$root
             
             reject: function(id, reason) {
             	console.log("calling reject ")
-                    return $http.get(BASE_URL+'/reject/'+id+'/'+reason)
+                    return $http.put(BASE_URL+'/tRejectBlog/'+id+'/'+reason)
                             .then(
                                     function(response){
                                         return response.data;
@@ -74,18 +87,6 @@ app.factory('BlogService', ['$http', '$q','$rootScope', function($http, $q,$root
                             );
             },
              
-            deleteBlog: function(id){
-                    return $http.delete(BASE_URL+'/blog/'+id)
-                            .then(
-                                    function(response){
-                                        return response.data;
-                                    }, 
-                                    function(errResponse){
-                                        console.error('Error while deleting blog');
-                                        return $q.reject(errResponse);
-                                    }
-                            );
-            },
             
             getBlog: function(id){
                 return $http.get  (BASE_URL+'/blog/'+id)

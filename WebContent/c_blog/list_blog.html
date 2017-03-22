@@ -1,3 +1,233 @@
+<style>
+body {
+	font-family: "proxima-nova-soft", sans-serif;
+}
+
+$
+red:         #E48482 ; .post {
+	width: 50%;
+	float: left;
+	min-height: 400px;
+	color: $white;
+	display: table; . inner { display : table-cell;
+	vertical-align: middle;
+	padding: 0 15%;
+}
+
+.title {
+	font-size: 1.75em;
+}
+
+.post_info { .date , .read_length { display:inline;
+	font-size: 1.1em;
+}
+
+.date {
+	margin-right: 1em;
+}
+
+}
+transition
+
+
+
+
+:
+
+
+ 
+
+
+background
+
+
+ 
+
+
+.4s
+
+
+ 
+
+
+ease-in-out
+
+
+
+
+;
+}
+.red {
+	background: $red;
+	.
+	post_info
+	{
+	.date
+	{
+	color
+	:
+	#A25F5E;
+}
+
+.read_length {
+	color: #F8B4B2;
+}
+
+}
+&
+:hover {
+	background: darken($ red, 10%);
+}
+
+}
+button.example {
+	-webkit-transition: all 0s ease-out;
+	-moz-transition: all 0s ease-out;
+	-o-transition: all 0s ease-out;
+	-ms-transition: all 0s ease-out;
+	transition: all 0s ease-out;
+	height: 35px;
+	display: block;
+	font-family: Arial, "Helvetica", sans-serif;
+	font-size: 14px;
+	color: #fff;
+	text-decoration: none;
+	text-align: center;
+	text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
+	padding: 4px 20px 0;
+	margin: 10px auto;
+	left: 30px;
+	position: relative;
+	cursor: pointer;
+	border: none;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+button.facebook {
+	border-left: solid 1px #2E4476;
+	background: #3B5999;
+	-webkit-box-shadow: 0px 5px 0px 0px #2E4476;
+	box-shadow: 0px 5px 0px 0px #2E4476;
+}
+
+button.twitter {
+	border-left: solid 1px #269BD0;
+	background: #46C1F6;
+	-webkit-box-shadow: 0px 5px 0px 0px #269BD0;
+	box-shadow: 0px 5px 0px 0px #269BD0;
+}
+
+button.pinterest {
+	border-left: solid 1px #C02B21;
+	background: #DE463B;
+	-webkit-box-shadow: 0px 5px 0px 0px #C02B21;
+	box-shadow: 0px 5px 0px 0px #C02B21;
+}
+
+button.yahoo {
+	border-left: solid 1px #813781;
+	background: #A948A9;
+	-webkit-box-shadow: 0px 5px 0px 0px #813781;
+	box-shadow: 0px 5px 0px 0px #813781;
+}
+
+button.example:active {
+	top: 3px;
+}
+
+button.facebook:active {
+	-webkit-box-shadow: 0px 2px 0px 0px #2E4476;
+	box-shadow: 0px 2px 0px 0px #2E4476;
+}
+
+button.twitter:active {
+	-webkit-box-shadow: 0px 2px 0px 0px #269BD0;
+	box-shadow: 0px 2px 0px 0px #269BD0;
+}
+
+button.pinterest:active {
+	-webkit-box-shadow: 0px 2px 0px 0px #C02B21;
+	box-shadow: 0px 2px 0px 0px #C02B21;
+}
+
+button.yahoo:active {
+	-webkit-box-shadow: 0px 2px 0px 0px #813781;
+	box-shadow: 0px 2px 0px 0px #813781;
+}
+
+button.example:before {
+	content: "1";
+	width: 35px;
+	height: 25px;
+	display: block;
+	position: absolute;
+	padding-top: 10px;
+	line-height: 20px;
+	top: 0px;
+	margin-left: -54px;
+	font-size: 16px;
+	font-weight: bold;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+button.facebook:before {
+	border-right: solid 1px #2E4476;
+	background: #3B5999;
+	-webkit-box-shadow: 0px 5px 0px 0px #2E4476;
+	box-shadow: 0px 5px 0px 0px #2E4476;
+}
+
+button.twitter:before {
+	border-right: solid 1px #269BD0;
+	background: #46C1F6;
+	-webkit-box-shadow: 0px 5px 0px 0px #269BD0;
+	box-shadow: 0px 5px 0px 0px #269BD0;
+}
+
+button.pinterest:before {
+	border-right: solid 1px #C02B21;
+	background: #DE463B;
+	-webkit-box-shadow: 0px 5px 0px 0px #C02B21;
+	box-shadow: 0px 5px 0px 0px #C02B21;
+}
+
+button.yahoo:before {
+	border-right: solid 1px #813781;
+	background: #A948A9;
+	-webkit-box-shadow: 0px 5px 0px 0px #813781;
+	box-shadow: 0px 5px 0px 0px #813781;
+}
+
+button.example:active:before {
+	top: -3px;
+}
+
+button.facebook:active:before {
+	-webkit-box-shadow: 0px 5px 0px 0px #2E4476, 6px 4px 2px
+		rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 5px 0px 0px #2E4476, 6px 4px 2px rgba(0, 0, 0, 0.3);
+}
+
+button.twitter:active:before {
+	-webkit-box-shadow: 0px 5px 0px 0px #269BD0, 6px 4px 2px
+		rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 5px 0px 0px #269BD0, 6px 4px 2px rgba(0, 0, 0, 0.3);
+}
+
+button.pinterest:active:before {
+	-webkit-box-shadow: 0px 5px 0px 0px #C02B21, 6px 4px 2px
+		rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 5px 0px 0px #C02B21, 6px 4px 2px rgba(0, 0, 0, 0.3);
+}
+
+button.yahoo:active:before {
+	-webkit-box-shadow: 0px 5px 0px 0px #813781, 6px 4px 2px
+		rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 5px 0px 0px #813781, 6px 4px 2px rgba(0, 0, 0, 0.3);
+}
+</style>
 
 
 
@@ -12,15 +242,10 @@
 
 
 
-
-<div  class="container" ng-controller="BlogController as ctrl">
-
-
+<div class="container" ng-controller="BlogController as ctrl">
 Welcome to Blogs
 <div ng-repeat="blog in ctrl.blogs">
  <a href = "#"  ng-click="ctrl.getSelectedBlog(blog.id)"> Title  {{blog.title}} -  Written By:  {{blog.userID}}</a>  
 
 </div>
-
-
 </div>

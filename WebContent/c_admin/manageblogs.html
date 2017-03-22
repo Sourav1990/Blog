@@ -1,0 +1,12 @@
+
+<div  class="container" ng-controller="BlogController as ctrl">
+<div ng-init="ctrl.fetchAllNewBlogs()">
+
+Welcome to Blogs
+<div ng-show= "blog.status=='N'" ng-repeat="blog in ctrl.blogs">
+ <a href = "#"  ng-click="ctrl.getSelectedBlog(blog.id)"> Title  {{blog.title}} -  Written By:  {{blog.userID}}</a>  
+
+</div>
+</div>
+
+</div>

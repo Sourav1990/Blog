@@ -62,8 +62,8 @@ app.service('JobService', ['$http', '$q','$rootScope', function($http, $q,$rootS
                         );
         },
              
-            rejectJobApplication: function(userID, jobID){
-                    return $http.put(BASE_URL+'/rejectJobApplication/'+userID+ "/" + jobID)
+            rejectJobApplication: function(userID, jobID,remarks){
+                    return $http.put(BASE_URL+'/rejectJobApplication/'+userID+ "/" + jobID+ "/"+remarks)
                             .then(
                                     function(response){
                                         return response.data;
@@ -75,8 +75,8 @@ app.service('JobService', ['$http', '$q','$rootScope', function($http, $q,$rootS
                             );
             },
              
-            callForInterview: function(userID, jobID){
-            	  return $http.put(BASE_URL+'/callForInterview/'+userID, jobID)
+            callForInterview: function(userID, jobID,remarks){
+            	  return $http.put(BASE_URL+'/callForInterview/'+userID+ "/" + jobID+ "/"+remarks)
                             .then(
                                     function(response){
                                         return response.data;
@@ -87,8 +87,8 @@ app.service('JobService', ['$http', '$q','$rootScope', function($http, $q,$rootS
                                     }
                             );
             },
-            selectUser: function(userID,jobID){
-            	  return $http.put(BASE_URL+'/selectUser/'+userID +"/"+ jobID)
+            selectUser: function(userID,jobID,remarks){
+            	  return $http.put(BASE_URL+'/selectUser/'+userID +"/"+ jobID+ "/"+remarks)
                             .then(
                                 function(response){
                                     return response.data;
@@ -108,6 +108,20 @@ app.service('JobService', ['$http', '$q','$rootScope', function($http, $q,$rootS
                             }, 
                             function(errResponse){
                                 console.error('Error while getting all jobs');
+                                return $q.reject(errResponse);
+                            }
+                    );
+    },
+    
+    getAllNewJobs: function(){
+            return $http.get(BASE_URL+'/getAllNewJobs/')
+                    .then(
+                            function(response){
+                            	$rootScope.selectedJob = response.data
+                                return response.data;
+                            }, 
+                            function(errResponse){
+                                console.error('Error while getting all New jobs');
                                 return $q.reject(errResponse);
                             }
                     );

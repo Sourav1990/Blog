@@ -53,6 +53,17 @@ app.controller('BlogController', ['$scope', 'BlogService','$location','$rootScop
                                 }
                        );
           };
+          self.fetchAllNewBlogs = function(){
+              BlogService.fetchAllNewBlogs()
+                  .then(
+                               function(d) {
+                                    self.blogs = d;
+                               },
+                                function(errResponse){
+                                    console.error('Error while fetching Blogs');
+                                }
+                       );
+          };
             
           self.createBlog = function(blog){
               BlogService.createBlog(blog)
@@ -76,14 +87,13 @@ app.controller('BlogController', ['$scope', 'BlogService','$location','$rootScop
           
           self.accept = function(id) {
 				console.log("accept...")
-				JobService
+				BlogService
 						.accept(id)
 						.then(
 								function(d) {
-									self.job = d;
+									self.blog = d;
 									self.fetchAllBlogs
-									$location.path("/manage_jobs")
-									alert(self.job.errorMessage)
+									alert(self.blog.errorMessage)
 									
 								},
 								
@@ -96,14 +106,13 @@ app.controller('BlogController', ['$scope', 'BlogService','$location','$rootScop
 			self.reject = function( id) {
 				console.log("reject...")
 				var reason = prompt("Please enter the reason");
-				JobService
+				BlogService
 						.reject(id,reason)
 						.then(
 								function(d) {
-									self.job = d;
+									self.blog = d;
 									self.fetchAllBlogs
-									$location.path("/manage_jobs")
-									alert(self.job.errorMessage)
+									alert(self.blog.errorMessage)
 									
 								},
 								function(errResponse) {

@@ -16,6 +16,8 @@ app	.controller('JobController',['JobService','$location', '$rootScope',
 								errorMessage : ''
 							};
 							self.jobs = [];
+							self.jobapplied={jobID:'',UserID:'',DateApplied:'',Remarks:''}
+							self.jobsapplied=[];
 							
 							self.applyForJob = applyForJob
 
@@ -66,9 +68,9 @@ app	.controller('JobController',['JobService','$location', '$rootScope',
 								});
 							};
 
-							self.rejectJobApplication = function(userID) {
-						    var jobID =$rootScope.selectedJob.id;
-								JobService.rejectJobApplication(userID,jobID												)
+							self.rejectJobApplication = function(userID,jobID,remarks) {
+								var remarks = prompt("Please enter the reason");	
+								JobService.rejectJobApplication(userID,jobID,remarks												)
 										.then(
 												function(d) {
 													self.job = d;
@@ -81,11 +83,11 @@ app	.controller('JobController',['JobService','$location', '$rootScope',
 												});
 							};
 
-							self.callForInterview = function(userID) {
-								var jobID =$rootScope.selectedJob.id;	
+							self.callForInterview = function(userID,jobID,remarks) {
+								var remarks = prompt("Please enter the reason");	
 								JobService
 										.callForInterview(userID,
-												jobID)
+												jobID,remarks)
 										.then(
 												function(d) {
 													self.job = d;
@@ -96,14 +98,14 @@ app	.controller('JobController',['JobService','$location', '$rootScope',
 															.error('Error while changing the status "call for interview" ');
 												});
 							};
-							self.selectUser = function(userID) {
-								var jobID =$rootScope.selectedJob.id;		
+							self.selectUser = function(userID,jobID,remarks) {	
+								var remarks = prompt("Please enter the reason");
 								JobService
-										.selectUser(userID, jobID)
+										.selectUser(userID, jobID,remarks)
 										.then(
 												function(d) {
 													self.job = d;
-													alert("Application status sta as selected")
+													alert("Application status  as selected")
 												},
 												function(errResponse) {
 													console
@@ -126,6 +128,23 @@ app	.controller('JobController',['JobService','$location', '$rootScope',
 							};
 
 							self.getAllJobs();
+							
+							self.getAllNewJobs = function() {
+								console.log('calling the method getAllNewJobs');
+								JobService
+										.getAllNewJobs()
+										.then(
+												function(d) {
+													console.log('newly applied jobs'+d);
+													self.jobsapplied = d;
+												},
+												function(errResponse) {
+													console
+															.error('Error while fetching All opend jobs');
+												});
+							};
+
+							self.getAllNewJobs();
 
 							self.submit = function() {
 								{

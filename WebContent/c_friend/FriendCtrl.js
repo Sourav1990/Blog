@@ -1,7 +1,7 @@
 'use strict';
  
 app.controller('FriendController', ['UserService','$scope', 'FriendService','$location',
-   '$rootScope',function(UserService,$scope, FriendService,$location,$routeParams,$rootScope) {
+   '$rootScope','$route',function(UserService,$scope, FriendService,$location,$routeParams,$rootScope,$route) {
 	console.log("FriendController...")
           var self = this;
           self.friend={id:'',userID:'',friendID:'',status:'',errorMessage : '',errorCode:''};
@@ -102,7 +102,9 @@ app.controller('FriendController', ['UserService','$scope', 'FriendService','$lo
           };
  
          self.acceptFriendRequest = function(userID){
+        	 alert("I am in your friend list now"+userID);
               FriendService.acceptFriendRequest(userID)
+             
                       .then(
                               self.myFriends, 
                               function(errResponse){
@@ -112,7 +114,9 @@ app.controller('FriendController', ['UserService','$scope', 'FriendService','$lo
           };
           
           self.rejectFriendRequest = function(userID){
+        	  alert("Seems it was a stranger!!!");
               FriendService.rejectFriendRequest(userID)
+             
                       .then(
                               self.myFriends, 
                               function(errResponse){
@@ -122,14 +126,11 @@ app.controller('FriendController', ['UserService','$scope', 'FriendService','$lo
           };
           
           self.unFriend = function(userID){
-              FriendService.unFriend(userID)
-                      .then(
-                              self.myFriends, 
-                              function(errResponse){
-                                   console.error('Error while unFriend ');
-                                   
-                              } 
-                  );
+        	  alert("Successfully removed from your friend list");
+              FriendService.unFriend(userID).then(function(errResponse){
+            	  console.error('Error while unFriend ');
+            	  });
+              
           };
           
           self.listAllUsersNotFriends = function() {
@@ -138,13 +139,6 @@ app.controller('FriendController', ['UserService','$scope', 'FriendService','$lo
 				}, function(errResponse) {
 					console.error('Error while fetching Users');
 				});
-			};
-			
-            
- 
-
-          self.getMyFriends();
- 
-     
+			};     
  
       }]);
